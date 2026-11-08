@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Design tokens
+   One accent (teal) across both themes. Edit these values to re-skin the site.
+--------------------------------------------------------------------------- */
+@layer base {
+  :root {
+    --c-bg: 247 247 244;
+    --c-surface: 255 255 255;
+    --c-raised: 240 242 238;
+    --c-fg: 16 24 21;
+    --c-muted: 84 96 91;
+    --c-line: 221 226 221;
+    --c-accent: 15 118 110;
+    --c-accent-contrast: 255 255 255;
+    --c-accent-soft: 204 251 241;
+    color-scheme: light;
+  }
+
+  .dark {
+    --c-bg: 7 11 10;
+    --c-surface: 13 19 17;
+    --c-raised: 18 26 23;
+    --c-fg: 236 242 239;
+    --c-muted: 148 163 157;
+    --c-line: 37 49 44;
+    --c-accent: 45 212 191;
+    --c-accent-contrast: 4 20 17;
+    --c-accent-soft: 10 50 45;
+    color-scheme: dark;
+  }
+
+  *,
+  *::before,
+  *::after {
+    border-color: rgb(var(--c-line));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-bg font-sans text-fg antialiased;
+    overflow-x: clip;
+    transition:
+      background-color 0.35s ease,
+      color 0.35s ease;
+    font-feature-settings: 'cv11', 'ss01';
+    text-rendering: optimizeLegibility;
+  }
+
+  @supports not (overflow: clip) {
+    body {
+      overflow-x: hidden;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+    letter-spacing: -0.025em;
+  }
+
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  ::selection {
+    background-color: rgb(var(--c-accent));
+    color: rgb(var(--c-accent-contrast));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--c-accent));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--c-bg));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--c-line));
+    border-radius: 999px;
+    border: 2px solid rgb(var(--c-bg));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--c-accent) / 0.6);
+  }
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-[1180px] px-5 sm:px-8;
+  }
+
+  .section-pad {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent;
+  }
+
+  .eyebrow-line {
+    @apply h-px w-7 bg-accent/60;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-line bg-surface/70 backdrop-blur-sm;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(rgb(var(--c-accent)), rgb(var(--c-accent)));
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.3s ease;
+  }
+
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  .skip-link {
+    @apply fixed left-4 top-3 z-[200] -translate-y-[200%] rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-contrast transition-transform;
+  }
+
+  .skip-link:focus {
+    @apply translate-y-0;
+  }
+
+  .bg-hero-grid {
+    background-image:
+      linear-gradient(to right, rgb(var(--c-line) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--c-line) / 0.5) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 65% at 50% 40%, black 20%, transparent 75%);
+    mask-image: radial-gradient(ellipse 80% 65% at 50% 40%, black 20%, transparent 75%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      120deg,
+      rgb(var(--c-fg)) 0%,
+      rgb(var(--c-fg)) 45%,
+      rgb(var(--c-accent)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .cursor-glow {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 34rem;
+    height: 34rem;
+    margin-left: -17rem;
+    margin-top: -17rem;
+    border-radius: 9999px;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(
+      circle,
+      rgb(var(--c-accent) / 0.13) 0%,
+      rgb(var(--c-accent) / 0.06) 35%,
+      transparent 70%
+    );
+    filter: blur(12px);
+    will-change: transform;
+    transition: opacity 0.4s ease;
+  }
+
+  .dark .cursor-glow {
+    background: radial-gradient(
+      circle,
+      rgb(var(--c-accent) / 0.16) 0%,
+      rgb(var(--c-accent) / 0.07) 35%,
+      transparent 70%
+    );
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 40px rgb(var(--c-accent) / 0.25);
+  }
+}
+
+/* Respect users who prefer reduced motion. Framer Motion is also configured via
+   <MotionConfig reducedMotion="user"> in App.jsx. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

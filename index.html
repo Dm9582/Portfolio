@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dhruv Kumar — Full-Stack Developer & CSE Student</title>
+    <meta
+      name="description"
+      content="Portfolio of Dhruv Kumar, a Computer Science Engineering student at VIT Bhopal University, building efficient, user-focused full-stack software with React, Node.js, Express.js and SQL."
+    />
+    <meta name="author" content="Dhruv Kumar" />
+    <meta name="theme-color" id="theme-color" content="#070b0a" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+
+    <!-- Open Graph / social preview — replace the relative image path with an absolute URL after deploying. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Dhruv Kumar — Portfolio" />
+    <meta property="og:title" content="Dhruv Kumar — Full-Stack Developer & CSE Student" />
+    <meta
+      property="og:description"
+      content="Computer Science Engineering student at VIT Bhopal University building efficient, user-focused full-stack software."
+    />
+    <meta property="og:image" content="./og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dhruv Kumar — Full-Stack Developer portfolio cover" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dhruv Kumar — Full-Stack Developer & CSE Student" />
+    <meta
+      name="twitter:description"
+      content="Computer Science Engineering student at VIT Bhopal University building efficient, user-focused full-stack software."
+    />
+    <meta name="twitter:image" content="./og-image.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Set the theme before React loads to avoid a flash of the wrong colour scheme.
+      (() => {
+        try {
+          const saved = localStorage.getItem('theme');
+          const isDark = saved !== 'light';
+          document.documentElement.classList.toggle('dark', isDark);
+          document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+        } catch {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Dhruv Kumar",
+        "email": "mailto:dhruv95682@gmail.com",
+        "telephone": "+9565145878",
+        "jobTitle": "Computer Science Engineering Student",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "VIT Bhopal University"
+        },
+        "sameAs": [
+          "https://github.com/Dm9582",
+          "https://www.linkedin.com/in/dhruv-kumar-6338481b7/"
+        ],
+        "knowsAbout": [
+          "JavaScript",
+          "React.js",
+          "Node.js",
+          "Express.js",
+          "SQL",
+          "Git",
+          "Full-stack development"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="padding: 2rem; font-family: sans-serif; text-align: center">
+        This portfolio needs JavaScript enabled to display interactive content.
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
