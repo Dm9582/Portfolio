@@ -4,8 +4,10 @@
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-EB0054?logo=framer&logoColor=white)](https://www.framer.com/motion/)
+[![Live Site](https://img.shields.io/badge/Live_Site-GitHub_Pages-2ea44f?logo=github&logoColor=white)](https://dm9582.github.io/Portfolio/)
 
-**Repository:** [github.com/Dm9582/Portfolio](https://github.com/Dm9582/Portfolio)
+**Repository:** [github.com/Dm9582/Portfolio](https://github.com/Dm9582/Portfolio)  
+**Live site:** [dm9582.github.io/Portfolio](https://dm9582.github.io/Portfolio/)
 
 ![Dhruv Kumar portfolio preview](./public/og-image.png)
 
@@ -168,18 +170,31 @@ To collect messages through a form service instead, replace the `window.location
 
 ### GitHub Pages
 
+This repository is already configured for GitHub Pages and deploys on every push to `main`:
+
+- **Live site:** https://dm9582.github.io/Portfolio/
+- **Workflow:** `.github/workflows/deploy.yml`
+- **Pages source:** GitHub Actions (Settings → Pages)
+
+To use the same setup in another repository:
+
 1. Push to a GitHub repository with `main` as the default branch.
 2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
-3. The included workflow (`.github/workflows/deploy.yml`) builds and deploys on every push to `main`.
+3. The included workflow builds and deploys on every push to `main`.
 4. For a custom domain, configure it in the Pages settings.
 
 Vite's `base` is set to `./`, so the site also works under a GitHub Pages project subpath without editing configuration.
 
-### After your first deploy
+### After deploying elsewhere
 
-1. Replace the relative `og:image` / `twitter:image` paths in `index.html` with absolute URLs, for example `https://your-domain.com/og-image.png`.
-2. Optionally add the final URL as a canonical link and to the JSON-LD Person schema.
-3. Test the deployed contact links and download button.
+The canonical URL and social images currently target the GitHub Pages deployment. If you use a custom domain, Vercel, or Netlify instead, update these absolute URLs in `index.html`:
+
+- `canonical`
+- `og:url`
+- `og:image`
+- `twitter:image`
+
+Then test the contact links, resume download, and social preview after deploying.
 
 ## Content notes / what is still missing
 
