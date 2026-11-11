@@ -2,6 +2,7 @@ import {
   Code2,
   Database,
   Server,
+  Terminal,
   Workflow,
   Wrench,
 } from 'lucide-react';
@@ -13,7 +14,8 @@ const ICONS = {
   code: Code2,
   server: Server,
   database: Database,
-  tools: Wrench,
+  wrench: Wrench,
+  terminal: Terminal,
   workflow: Workflow,
 };
 
@@ -30,17 +32,14 @@ export default function Skills() {
           eyebrow="Skills"
           titleId="skills-title"
           title="The tools I use to turn ideas into working software."
-          description="Frontend, backend, databases, and the ServiceNow platform tools I explored during my internship."
+          description="Frontend, backend, programming languages, databases, and the ServiceNow platform tools I explored during my internship."
         />
 
         <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {resume.skills.map((group, index) => {
             const Icon = ICONS[group.icon];
             return (
-              <StaggerItem
-                key={group.id}
-                className={group.featured ? 'sm:col-span-2 lg:col-span-2' : ''}
-              >
+              <StaggerItem key={group.id}>
                 <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:bg-surface/90 hover:shadow-card">
                   <div
                     className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent/0 blur-2xl transition-colors duration-500 group-hover:bg-accent/10"

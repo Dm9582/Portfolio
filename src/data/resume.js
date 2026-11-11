@@ -4,7 +4,7 @@
  *  Everything shown on the site comes from this file. Edit content here — no
  *  component changes required.
  *
- *  Content is taken from "FInal Resume Dhruv (1).pdf". Nothing was invented.
+ *  Content is taken from "Dhruv-Kumar-Resume-Updated.pdf". Nothing was invented.
  *  Items that were missing are marked with a comment and listed in README.md.
  * ─────────────────────────────────────────────────────────────────────────────
  */
@@ -57,7 +57,7 @@ const resume = {
   stats: [
     { value: 1, label: 'Virtual internship', decimals: 0 },
     { value: 2, label: 'Projects built', decimals: 0 },
-    { value: 16, label: 'Technologies & tools', decimals: 0 },
+    { value: 18, label: 'Technologies & tools', decimals: 0 },
     { value: 8.67, label: 'Current CGPA', decimals: 2 },
   ],
 
@@ -90,6 +90,13 @@ const resume = {
       icon: 'wrench',
       description: 'Tools I use to build and collaborate.',
       items: ['Git', 'GitHub', 'VS Code'],
+    },
+    {
+      id: 'languages',
+      title: 'Programming Languages',
+      icon: 'terminal',
+      description: 'Languages I use for problem-solving and scripting.',
+      items: ['C++', 'Python'],
     },
     {
       id: 'servicenow',
